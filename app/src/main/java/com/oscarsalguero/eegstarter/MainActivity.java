@@ -31,7 +31,7 @@ import com.neurosky.thinkgear.TGRawMulti;
  * Main Activity
  * <p/>
  * Connects to a MindWave EEG device via bluetooth and starts listening for attention, meditation, heart rate and blink readings.
- * It logs raw data to LOG CAT when the rawEnabled flag is set to true.
+ * Shows raw data only when the rawEnabled flag is set to true.
  *
  * @author RacZo
  */
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewBlink;
     private TextView textViewRawData;
     private TGDevice tgDevice;
-    private final boolean rawEnabled = true;
+    private final boolean rawEnabled = true; //Shows raw data in textViewRawData
     private static final String LOG_TAG = MainActivity.class.getName();
 
     @Override
@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
 
                             break;
                         case TGDevice.MSG_POOR_SIGNAL:
-                            if(message.arg1 > 0) {
+                            if (message.arg1 > 0) {
                                 Log.w(LOG_TAG, "Poor signal: " + message.arg1);
                             }
                             break;
                         case TGDevice.MSG_RAW_DATA:
-                            if(rawEnabled) {
+                            if (rawEnabled) {
                                 updateRawData(message.arg1);
                             }
                             break;
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                             showLowBatteryToast();
                             break;
                         case TGDevice.MSG_RAW_MULTI:
-                            TGRawMulti tgRawMulti = (TGRawMulti)message.obj;
+                            TGRawMulti tgRawMulti = (TGRawMulti) message.obj;
                             Log.i(LOG_TAG, "Raw channel 1: " + tgRawMulti.ch1);
                             Log.i(LOG_TAG, "Raw channel 2: " + tgRawMulti.ch2);
                             Log.i(LOG_TAG, "Raw channel 3: " + tgRawMulti.ch3);
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         textViewRawData.setText(String.valueOf(rawData));
     }
 
-    private void showLowBatteryToast(){
+    private void showLowBatteryToast() {
         Toast.makeText(this, getString(R.string.device_low_battery), Toast.LENGTH_LONG).show();
     }
 
