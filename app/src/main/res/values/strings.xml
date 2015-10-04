@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">EEG Starter</string>
+
+    <string name="action_connect">Connect</string>
+    <string name="action_about">About</string>
+
+    <string name="device_low_battery">Low battery!</string>
+    <string name="device_poor_signal">Poor signal: </string>
+
+    <string name="label_levels">MindWave Levels</string>
+    <string name="label_attention">Attention:</string>
+    <string name="label_meditation">Meditation:</string>
+    <string name="label_heart_rate">Heart Rate:</string>
+    <string name="label_blink">Blink:</string>
+    <string name="label_raw_data">Raw Data:</string>
+
+    <string name="value_zero">0</string>
+
+    <string name="git_hub_repo_url">https://github.com/RacZo/EEGStarter</string>
+
+    <string name="bluetooth_not_available">Bluetooth not available!</string>
+
+</resources>
